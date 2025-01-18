@@ -14,7 +14,7 @@ Write it to SD card:
 
 1. Download your favorite UEFI linux installer image for aarch64 and write it to USB stick.
 2. Connect M.2 NVME to the board (optional).
-3. Connect serial console to the boards UART.
+3. Connect UART (serial) console to the boards UART.
 4. Insert both the SD card and USB stick into your Odroid-M2. Set the boot switch to SD card.
 5. Power on the board to boot the installer.
 6. Install your linux distribution.
@@ -34,3 +34,11 @@ or alternatively you can ensure that first ~12MiB is not partitioned and use a b
 
 The actual u-boot is pretty small, but it consists of two parts that must be at right place on the device,
 with second one starting at 8MiB offset.
+
+## Connecting UART
+
+The UART pins counted from the nearest board corner are *ground, TX, RX* and *+3.3V*.
+This means that your serial adapter pins should be connected in the order *ground, RX* and *TX*
+(which often is black, green, white). The serial adapter should be configured for 1500000
+baud, for example by using `screen /dev/ttyUSB0 1500000`.
+
