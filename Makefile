@@ -13,7 +13,8 @@ build-$(CONFIG)/u-boot-rockchip.bin: build-$(CONFIG)/generated_defconfig
 
 # https://docs.u-boot.org/en/latest/develop/bootstd/overview.html#controlling-ordering
 build-$(CONFIG)/generated_defconfig: $(DEFCONFIG_FILE)
-	echo boot_targets=mmc0 nvme mmc1 usb pxe dhcp > $(UBOOT)/board/hardkernel/odroid_m2/odroid_m2.env
+	# mmc1 is sd card and mmc0 is the internal eMMC device
+	echo boot_targets=mmc1 nvme mmc0 usb pxe dhcp > $(UBOOT)/board/hardkernel/odroid_m2/odroid_m2.env
 	$(MAKE) $(ENV) -C $(UBOOT) $(CONFIG)_defconfig
 
 $(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX).tar.gz
