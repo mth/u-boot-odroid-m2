@@ -1,3 +1,4 @@
 /build-*
 /v20*
 /*-uboot.img
+/linux-*.tar.gz
