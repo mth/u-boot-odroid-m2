@@ -1,0 +1,65 @@
+--- rockchip/rk3588s-odroid-m2.dts	2025-01-18 22:04:33.330630184 +0200
++++ rockchip-2/rk3588s-odroid-m2.dts	2025-01-18 22:13:35.815400962 +0200
+@@ -23,6 +23,17 @@
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+ 
++	analog-sound {
++		compatible = "audio-graph-card";
++		label = "rk3588-es8316";
++		dais = <&i2s0_8ch_p0>;
++		routing = "MIC2", "Mic Jack",
++			  "Headphones", "HPOL",
++			  "Headphones", "HPOR";
++		widgets = "Microphone", "Mic Jack",
++			  "Headphone", "Headphones";
++	};
++
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+ 		type = "a";
+@@ -396,6 +407,44 @@
+ 	};
+ };
+ 
++&i2c7 {
++	status = "okay";
++
++	audio-codec@11 {
++		compatible = "everest,es8316";
++		reg = <0x11>;
++		assigned-clocks = <&cru I2S0_8CH_MCLKOUT>;
++		assigned-clock-rates = <12288000>;
++		clocks = <&cru I2S0_8CH_MCLKOUT>;
++		clock-names = "mclk";
++		#sound-dai-cells = <0>;
++
++		port {
++			es8316_p0_0: endpoint {
++				remote-endpoint = <&i2s0_8ch_p0_0>;
++			};
++		};
++	};
++};
++
++&i2s0_8ch {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2s0_lrck
++		     &i2s0_mclk
++		     &i2s0_sclk
++		     &i2s0_sdi0
++		     &i2s0_sdo0>;
++	status = "okay";
++
++	i2s0_8ch_p0: port {
++		i2s0_8ch_p0_0: endpoint {
++			dai-format = "i2s";
++			mclk-fs = <256>;
++			remote-endpoint = <&es8316_p0_0>;
++		};
++	};
++};
++
+ &mdio1 {
+ 	rgmii_phy1: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-id001c.c916";

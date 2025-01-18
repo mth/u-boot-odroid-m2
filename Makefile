@@ -21,6 +21,7 @@ $(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX).tar.gz
 	mkdir -p $(UBOOT)
 	tar xzf $< -C $(UBOOT) --strip-components 1 
 	tar xzf $(LINUX).tar.gz -C $(UBOOT)/dts/upstream/src/arm64/ $(LINUX)/arch/arm64/boot/dts/rockchip --strip-components 5
+	patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p1 < patches/00-dts-es8316.patch
 	echo CONFIG_LTO=y >> $(UBOOT)/configs/$(CONFIG)_defconfig
 
 $(UBOOT).tar.gz:
