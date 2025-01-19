@@ -40,5 +40,19 @@ with second one starting at 8MiB offset.
 The UART pins counted from the nearest board corner are *ground, TX, RX* and *+3.3V*.
 This means that your serial adapter pins should be connected in the order *ground, RX* and *TX*
 (which often is black, green, white). The serial adapter should be configured for 1500000
-baud, for example by using `screen /dev/ttyUSB0 1500000`.
+baud rate, for example by using `screen /dev/ttyUSB0 1500000`.
 
+The UART uses 3.3V signalling, please don't attempt connecting anything like RS232 port directly
+(those are specified for +/-12V signals, and would likely fry at least the SOCs UART).
+USB serial adapters supporting 1500000 baud rate are suitable, for example those using
+FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
+
+## No HDMI output
+
+The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has
+no HDMI output, as is with Linux kernel versions prior to 6.13.
+
+It is possible to have HDMI output on the installed linux, provided that it uses at least 6.13 kernel
+compiled with necessary modules and video mode (for example video=1920x1080@60) is given on kernel
+command line. This is likely to improve in future, but currently it means that you need UART console
+to use some Linux distributions installer.
