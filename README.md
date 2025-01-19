@@ -12,13 +12,13 @@ Write it to SD card:
 
 	dd if=odroid-m2-rk3588s-uboot.img of=/dev/sdXX
 
-1. Download your favorite UEFI linux installer image for aarch64 and write it to USB stick.
+1. Download your favorite UEFI Linux installer image for aarch64 and write it to USB stick.
 2. Connect M.2 NVME to the board (optional).
 3. Connect UART (serial) console to the boards UART.
 4. Insert both the SD card and USB stick into your Odroid-M2. Set the boot switch to SD card.
 5. Power on the board to boot the installer.
-6. Install your linux distribution.
-7. Boot the linux distribution.
+6. Install your Linux distribution.
+7. Boot the Linux distribution.
 
 You can copy the U-Boot to the internal eMMC when Linux system has booted on the board.
 Please verify before that `/dev/mmcblk1` is the SD card and `/dev/mmcblk0` is the 64GB eMMC on the board.
@@ -54,7 +54,7 @@ FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
 The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has
 no HDMI output, as is with Linux kernel versions prior to 6.13.
 
-It is possible to have HDMI output on the installed linux, provided that it uses at least 6.13 kernel
+It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel
 compiled with `CONFIG_DRM_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
 given on kernel command line. The support in 6.13 is also limited to more standard video modes up to
 4K resolution. This is likely to improve in future, but currently it means that you need UART console
