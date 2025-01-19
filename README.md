@@ -20,13 +20,14 @@ Write it to SD card:
 6. Install your linux distribution.
 7. Boot the linux distribution.
 
-You can copy the U-Boot to internal eMMC when Linux system has booted on the board.
+You can copy the U-Boot to the internal eMMC when Linux system has booted on the board.
 Please verify before that /dev/mmcblk1 is the SD card and /dev/mmcblk0 is the 64GB eMMC on the board.
 
 	dd bs=12M count=1 if=/dev/mmcblk1 of=/dev/mmcblk0
 
 This also copies (and overwrites) the partition table, with makes it easier later to replace the u-boot
-(it will be on the /dev/mmcblk1p1 which has the correct 64\*512 byte offset).
+(it will be on the /dev/mmcblk1p1 which has the correct 64\*512 byte offset). The original HardKernel
+firmware will be lost - you may want to back up it first.
 
 If you install to the eMMC, then this must be done before partitioning the eMMC using the installer,
 or alternatively you can ensure that first ~12MiB is not partitioned and use a bit different command:
