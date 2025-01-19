@@ -53,6 +53,7 @@ The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on 
 no HDMI output, as is with Linux kernel versions prior to 6.13.
 
 It is possible to have HDMI output on the installed linux, provided that it uses at least 6.13 kernel
-compiled with necessary modules and video mode (for example video=1920x1080@60) is given on kernel
-command line. This is likely to improve in future, but currently it means that you need UART console
+compiled with `CONFIG_DRM_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
+given on kernel command line. The support in 6.13 is also limited to more standard video modes up to
+4K resolution. This is likely to improve in future, but currently it means that you need UART console
 to use some Linux distributions installer.
