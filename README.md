@@ -29,7 +29,7 @@ This also copies (and overwrites) the partition table, with makes it easier to r
 (it will be on the `/dev/mmcblk0p1` which has the correct 64\*512 byte offset). The original HardKernel
 firmware will be lost - you may want to back up it first.
 
-If you install to the eMMC, then this must be done before partitioning the eMMC using the installer,
+If you install to the eMMC, then this copiyng must be done before partitioning the eMMC using the installer,
 or alternatively you can ensure that first ~12MiB is not partitioned and use a bit different command:
 
 	dd bs=32K count=330 if=/dev/mmcblk1p1 of=/dev/mmcblk0 seek=1
