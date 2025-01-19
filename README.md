@@ -25,7 +25,7 @@ Please verify before that `/dev/mmcblk1` is the SD card and `/dev/mmcblk0` is th
 
 	dd bs=12M count=1 if=/dev/mmcblk1 of=/dev/mmcblk0
 
-This also copies (and overwrites) the partition table, with makes it easier later to replace the u-boot
+This also copies (and overwrites) the partition table, with makes it easier to replace the u-boot later
 (it will be on the `/dev/mmcblk0p1` which has the correct 64\*512 byte offset). The original HardKernel
 firmware will be lost - you may want to back up it first.
 
