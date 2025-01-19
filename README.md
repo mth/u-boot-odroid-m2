@@ -21,7 +21,7 @@ Write it to SD card:
 7. Boot the linux distribution.
 
 You can copy the U-Boot to the internal eMMC when Linux system has booted on the board.
-Please verify before that /dev/mmcblk1 is the SD card and /dev/mmcblk0 is the 64GB eMMC on the board.
+Please verify before that `/dev/mmcblk1` is the SD card and `/dev/mmcblk0` is the 64GB eMMC on the board.
 
 	dd bs=12M count=1 if=/dev/mmcblk1 of=/dev/mmcblk0
 
