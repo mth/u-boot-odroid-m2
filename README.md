@@ -26,7 +26,7 @@ Please verify before that `/dev/mmcblk1` is the SD card and `/dev/mmcblk0` is th
 	dd bs=12M count=1 if=/dev/mmcblk1 of=/dev/mmcblk0
 
 This also copies (and overwrites) the partition table, with makes it easier later to replace the u-boot
-(it will be on the /dev/mmcblk1p1 which has the correct 64\*512 byte offset). The original HardKernel
+(it will be on the `/dev/mmcblk1p1` which has the correct 64\*512 byte offset). The original HardKernel
 firmware will be lost - you may want to back up it first.
 
 If you install to the eMMC, then this must be done before partitioning the eMMC using the installer,
