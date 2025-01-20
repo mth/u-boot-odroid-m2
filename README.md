@@ -8,6 +8,9 @@ Build the image:
 
 	make
 
+This U-Boot build includes Odroid-M2 device tree from the Linux 6.13 kernel sources,
+that will be provided to the operating system booted with UEFI.
+
 Write it to SD card (replace sdXX with device corresponding to the SD card):
 
 	dd if=odroid-m2-rk3588s-uboot.img of=/dev/sdXX
