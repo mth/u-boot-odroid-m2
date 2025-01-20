@@ -14,7 +14,7 @@ Write it to SD card (replace sdXX with device corresponding to the SD card):
 
 If you can't bother to build it and really trust me, you may instead use a pre-built image:
 
-	curl https://dot.planet.ee/dist/odroid-m2-rk3588s-uboot.img.xz | unxz | dd of=/dev/sdXX
+	curl https://dot.planet.ee/dist/odroid-m2-rk3588s-uboot.img.xz | unxz > /dev/sdXX
 
 1. Download your favorite UEFI Linux installer image for aarch64 and write it to USB stick.
 2. Connect M.2 NVME to the board (optional).
