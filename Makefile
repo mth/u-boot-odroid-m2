@@ -1,5 +1,6 @@
 UBOOT=v2025.01
-LINUX=linux-6.13-rc7
+LINUX=linux-6.13
+LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
 BUILD_DIR=$(shell pwd)/build-$(CONFIG)
 ENV=BL31=../rkbin/rk3588_bl31_v1.47.elf ROCKCHIP_TPL=../rkbin/rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.18.bin DTC=/usr/bin/dtc O=$(BUILD_DIR)
@@ -17,18 +18,19 @@ build-$(CONFIG)/generated_defconfig: $(DEFCONFIG_FILE)
 	echo boot_targets=mmc1 nvme mmc0 usb pxe dhcp > $(UBOOT)/board/hardkernel/odroid_m2/odroid_m2.env
 	$(MAKE) $(ENV) -C $(UBOOT) $(CONFIG)_defconfig
 
-$(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX).tar.gz
+$(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX_TAR)
 	mkdir -p $(UBOOT)
 	tar xzf $< -C $(UBOOT) --strip-components 1 
-	tar xzf $(LINUX).tar.gz -C $(UBOOT)/dts/upstream/src/arm64/ $(LINUX)/arch/arm64/boot/dts/rockchip --strip-components 5
+	tar xf $(LINUX_TAR) -C $(UBOOT)/dts/upstream/src/arm64/ $(LINUX)/arch/arm64/boot/dts/rockchip --strip-components 5
 	patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p1 < patches/00-dts-es8316.patch
 	echo CONFIG_LTO=y >> $(UBOOT)/configs/$(CONFIG)_defconfig
 
 $(UBOOT).tar.gz:
 	wget https://github.com/u-boot/u-boot/archive/refs/tags/$@
 
-$(LINUX).tar.gz:
-	wget https://git.kernel.org/torvalds/t/$@
+$(LINUX_TAR):
+	wget https://cdn.kernel.org/pub/linux/kernel/v6.x/$@
+	# wget https://git.kernel.org/torvalds/t/$@
 
 menuconfig:
 	$(MAKE) $(ENV) -C $(UBOOT) menuconfig
