@@ -25,5 +25,3 @@ irq_affinity panthor-job 5
 
 # Apply the IRQ CPU affinity rules
 awk -F: "$AFFINITY_AWK" < /proc/interrupts | sh
-
-exit 0
