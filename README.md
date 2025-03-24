@@ -63,6 +63,8 @@ no HDMI output, as is with Linux kernel versions prior to 6.13.
 
 It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel
 compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
-given on kernel command line. The support in 6.13 is also limited to more standard video modes up to
-4K resolution. This is likely to improve in future, but currently it means that you need UART console
-to use some Linux distributions installer.
+given on kernel command line. The support in 6.13 is also limited to few standard video modes.
+Better video modes and HDMI audio support is expected in the Linux 6.15 kernel, and I plan
+to update this U-Boot build to newer device tree after that.
+
+Currently you need UART console to use Linux distributions installers.
