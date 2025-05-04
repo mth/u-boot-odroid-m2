@@ -6,9 +6,10 @@
 # Leaving it at max performance can help with desktop responsiveness.
 echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 
-# Use ondemand scheduler on big cores.
-echo ondemand > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-echo ondemand > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
+# Using ondemand scheduler on big cores with the tuning below can give better performance
+# than schedutil. However it can also cause the fan to start more often.
+# echo ondemand > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+# echo ondemand > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
 
 AFFNITIY_AWK=""
 
@@ -34,8 +35,7 @@ irq_affinity dwc3 7
 # Apply the IRQ CPU affinity rules
 awk -F: "$AFFINITY_AWK" < /proc/interrupts | sh
 
-# Tune the ondemand scheduler respond to the io activity, and faster. Somewhat surprisingly
-# Quake3 also seems to be smoother with tuned ondemand scheduler compared to schedutil.
+# Tune the ondemand scheduler respond to the io activity, and faster.
 if [ -d /sys/devices/system/cpu/cpufreq/ondemand ]; then
 	echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
