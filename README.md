@@ -68,3 +68,7 @@ Better video modes and HDMI audio support is expected in the Linux 6.15 kernel, 
 to update this U-Boot build to newer device tree after that.
 
 Currently you need UART console to use Linux distributions installers.
+
+## Further tuning
+
+Thomas Kaiser has some [suggestions about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md), some of which might also apply to the RK3588s with mainline kernel.
