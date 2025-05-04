@@ -36,6 +36,7 @@ irq_affinity dwc3 7
 awk -F: "$AFFINITY_AWK" < /proc/interrupts | sh
 
 # Tune the ondemand scheduler respond to the io activity, and faster.
+# This was suggested by tkaiser for the Radxa Rock 5B board.
 if [ -d /sys/devices/system/cpu/cpufreq/ondemand ]; then
 	echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
