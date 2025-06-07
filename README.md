@@ -8,7 +8,7 @@ Build the image:
 
 	make
 
-This U-Boot build includes Odroid-M2 device tree from the Linux 6.13 kernel sources,
+This U-Boot build includes Odroid-M2 device tree from the Linux 6.15 kernel sources,
 that will be provided to the operating system booted with UEFI.
 
 Write it to SD card (replace sdXX with device corresponding to the SD card):
@@ -63,12 +63,23 @@ no HDMI output, as is with Linux kernel versions prior to 6.13.
 
 It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel
 compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
-given on kernel command line. The support in 6.13 is also limited to few standard video modes.
-Better video modes and HDMI audio support is expected in the Linux 6.15 kernel, and I plan
-to update this U-Boot build to newer device tree after that.
+given on kernel command line.
 
 Currently you need UART console to use Linux distributions installers.
 
+## Browsers
+
+Chromium based browsers run smoothly with good performance, but they contain some bug that causes frequent crashes when using Wayland directly. Workaround is setting *Preferred Ozone platform* to `X11` on the `chrome://flags` page.
+
+Firefox has acceptable performance with the Linux 6.15 kernel and annoyingly laggy on 6.13.
+
 ## Further tuning
 
-Thomas Kaiser has some [suggestions about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md), some of which might also apply to the RK3588s with mainline kernel.
+Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU scheduler tuning.
+
+This script is inspired by Thomas Kaiser [comments about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md).
+
+If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replace previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
+
+I use plain ALSA for sound with `util/asound.conf` in this GIT repository as `/etc/asound.conf`.
+This U-Boot build contains device tree patches that enable both HDMI and on-board audio output.
