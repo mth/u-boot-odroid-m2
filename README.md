@@ -73,7 +73,7 @@ Currently you need UART console to use Linux distributions installers.
 
 Chromium based browsers run smoothly with good performance, but they contain some bug that causes frequent crashes when using Wayland directly. Workaround is setting *Preferred Ozone platform* to `X11` on the `chrome://flags` page.
 
-Firefox has acceptable performance with the Linux 6.15 kernel and annoyingly laggy on 6.13.
+Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly laggy on the 6.13.
 
 ## Further tuning
 
