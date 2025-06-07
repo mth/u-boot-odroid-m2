@@ -1,5 +1,5 @@
 UBOOT=v2025.01
-LINUX=linux-6.13
+LINUX=linux-6.15
 LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
 BUILD_DIR=$(shell pwd)/build-$(CONFIG)
@@ -22,7 +22,7 @@ $(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX_TAR)
 	mkdir -p $(UBOOT)
 	tar xzf $< -C $(UBOOT) --strip-components 1 
 	tar xf $(LINUX_TAR) -C $(UBOOT)/dts/upstream/src/arm64/ $(LINUX)/arch/arm64/boot/dts/rockchip --strip-components 5
-	patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p1 < patches/00-dts-es8316.patch
+	patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p6 < patches/00-dts-es8316.patch
 	echo CONFIG_LTO=y >> $(UBOOT)/configs/$(CONFIG)_defconfig
 
 $(UBOOT).tar.gz:

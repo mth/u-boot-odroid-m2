@@ -1,5 +1,5 @@
---- rockchip/rk3588s-odroid-m2.dts	2025-01-18 22:04:33.330630184 +0200
-+++ rockchip-2/rk3588s-odroid-m2.dts	2025-01-18 22:13:35.815400962 +0200
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts	2025-06-07 12:20:02.496456648 +0300
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts	2025-06-07 12:31:50.815459437 +0300
 @@ -23,6 +23,17 @@
  		stdout-path = "serial2:1500000n8";
  	};
@@ -18,7 +18,7 @@
  	hdmi-con {
  		compatible = "hdmi-connector";
  		type = "a";
-@@ -396,6 +407,44 @@
+@@ -398,6 +409,44 @@
  	};
  };
  

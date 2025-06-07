@@ -1,0 +1,24 @@
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts	2025-06-07 12:31:50.815459437 +0300
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts	2025-06-07 12:38:05.959393682 +0300
+@@ -277,6 +277,10 @@
+ 	};
+ };
+ 
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+@@ -447,6 +451,10 @@
+ 	};
+ };
+ 
++&i2s5_8ch {
++	status = "okay";
++};
++
+ &mdio1 {
+ 	rgmii_phy1: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-id001c.c916";
