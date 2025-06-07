@@ -1,4 +1,4 @@
-UBOOT=v2025.01
+UBOOT=v2025.04
 LINUX=linux-6.15
 LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
