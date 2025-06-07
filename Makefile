@@ -22,7 +22,7 @@ $(DEFCONFIG_FILE): $(UBOOT).tar.gz $(LINUX_TAR)
 	mkdir -p $(UBOOT)
 	tar xzf $< -C $(UBOOT) --strip-components 1 
 	tar xf $(LINUX_TAR) -C $(UBOOT)/dts/upstream/src/arm64/ $(LINUX)/arch/arm64/boot/dts/rockchip --strip-components 5
-	for i in patches/*.patch; do patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p6 < $i; done
+	for i in patches/*.patch; do patch -d $(UBOOT)/dts/upstream/src/arm64/rockchip -p6 < $$i; done
 	echo CONFIG_LTO=y >> $(UBOOT)/configs/$(CONFIG)_defconfig
 
 $(UBOOT).tar.gz:
