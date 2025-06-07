@@ -81,6 +81,6 @@ Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU sch
 
 This script is inspired by Thomas Kaiser [comments about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md).
 
-If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replace previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
+If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replacing previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
 
 I use plain ALSA for sound with `util/asound.conf` in this GIT repository as `/etc/asound.conf`.
