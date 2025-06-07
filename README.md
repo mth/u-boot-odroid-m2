@@ -34,12 +34,9 @@ Please verify before that `/dev/mmcblk1` is the SD card and `/dev/mmcblk0` is th
 
 	dd bs=12M count=1 if=/dev/mmcblk1 of=/dev/mmcblk0
 
-This also copies (and overwrites) the partition table, which makes it easier to replace the u-boot later
-(it will be on the `/dev/mmcblk0p1` which has the correct 64\*512 byte offset). The original HardKernel
-firmware will be lost - you may want to back up it first.
+This also copies (and overwrites) the partition table, which makes it easier to replace the u-boot later (it will be on the `/dev/mmcblk0p1` which has the correct 64\*512 byte offset). The original HardKernel firmware will be lost - you may want to back up it first.
 
-If you install to the eMMC, then this copying must be done before partitioning the eMMC using the installer,
-or alternatively you can ensure that first ~12MiB is not partitioned and use a bit different command:
+If you install to the eMMC, then this copying must be done before partitioning the eMMC using the installer, or alternatively you can ensure that first ~12MiB is not partitioned and use a bit different command:
 
 	dd bs=32K count=330 if=/dev/mmcblk1p1 of=/dev/mmcblk0 seek=1
 
@@ -60,12 +57,9 @@ FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
 
 ## No HDMI output
 
-The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has
-no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
+The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
 
-It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel
-compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
-given on kernel command line. You should use at least 6.15 kernel version, if you wish to use other video modes than 1920x1080.
+It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is given on kernel command line. You should use at least 6.15 kernel version, if you wish to use other video modes than 1920x1080.
 
 You may need to install newer kernel, if your distributions default kernel is older than 6.13
 (for example on the Debian you can install experimental kernel packages, or possibly use the
