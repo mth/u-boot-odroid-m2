@@ -6,6 +6,10 @@
 # Leaving it at max performance can help with desktop responsiveness.
 echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 
+# Limit lowest frequency for the big cores to 816MHz
+echo 816000 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+echo 816000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+
 # Using ondemand scheduler on big cores with the tuning below can give better performance
 # than schedutil. However it can also cause the fan to start more often.
 # echo ondemand > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
