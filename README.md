@@ -9,7 +9,9 @@ Build the image:
 	make
 
 This U-Boot build includes Odroid-M2 device tree from the Linux 6.15 kernel sources,
-that will be provided to the operating system booted with UEFI.
+that will be provided to the operating system booted with UEFI. The device tree is patched to
+enable both on-board and HDMI audio output. It likely also works with other Linux kernel
+versions, so you can upgrade your distribution kernels.
 
 Write it to SD card (replace sdXX with device corresponding to the SD card):
 
@@ -59,11 +61,17 @@ FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
 ## No HDMI output
 
 The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has
-no HDMI output, as is with Linux kernel versions prior to 6.13.
+no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
 
 It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel
 compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is
 given on kernel command line.
+
+You may need to install newer kernel, if your distributions default kernel is older than 6.13
+(for example on the Debian you can install experimental kernel packages, or possibly use the
+backports, when newer kernel versions have landed there).
+
+Usable GUI also needs userland to have 24.x or newer version of the Mesa libraries.
 
 Currently you need UART console to use Linux distributions installers.
 
@@ -82,4 +90,3 @@ This script is inspired by Thomas Kaiser [comments about Radxa Rock 5B with BSP 
 If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replace previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
 
 I use plain ALSA for sound with `util/asound.conf` in this GIT repository as `/etc/asound.conf`.
-This U-Boot build contains device tree patches that enable both HDMI and on-board audio output.
