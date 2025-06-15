@@ -57,7 +57,7 @@ FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
 
 ## No HDMI output
 
-The U-Boot 25.01 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
+The U-Boot 25.04 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
 
 It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is given on kernel command line. You should use at least 6.15 kernel version, if you wish to use other video modes than 1920x1080.
 
