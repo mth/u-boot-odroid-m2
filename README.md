@@ -13,6 +13,9 @@ that will be provided to the operating system booted with UEFI. The device tree 
 enable both on-board and HDMI audio output. It likely also works with other Linux kernel
 versions, so you can upgrade your distribution kernels.
 
+[!WARNING]
+Avoid Linux 6.16-rc7 kernel as it crashes frequently on the Odroid-M2.
+
 Write it to SD card (replace sdXX with device corresponding to the SD card):
 
 	dd if=odroid-m2-rk3588s-uboot.img of=/dev/sdXX
@@ -76,6 +79,8 @@ Chromium based browsers run smoothly with good performance, but they contain som
 Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly laggy on the 6.13.
 
 ## Further tuning
+
+There seems to be bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing, for example start sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `.config/sway/config` file.
 
 Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU scheduler tuning.
 
