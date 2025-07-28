@@ -13,9 +13,6 @@ that will be provided to the operating system booted with UEFI. The device tree 
 enable both on-board and HDMI audio output. It likely also works with other Linux kernel
 versions, so you can upgrade your distribution kernels.
 
-> [!WARNING]
-> Avoid Linux 6.16-rc7 kernel as it crashes frequently on the Odroid-M2.
-
 Write it to SD card (replace sdXX with device corresponding to the SD card):
 
 	dd if=odroid-m2-rk3588s-uboot.img of=/dev/sdXX
@@ -87,3 +84,6 @@ Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU sch
 This script is inspired by Thomas Kaiser [comments about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md).
 
 If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replacing previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
+
+> [!WARNING]
+> Avoid Linux 6.16-rc7 kernel as it crashes frequently on the Odroid-M2.
