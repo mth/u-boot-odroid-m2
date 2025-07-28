@@ -13,8 +13,8 @@ that will be provided to the operating system booted with UEFI. The device tree 
 enable both on-board and HDMI audio output. It likely also works with other Linux kernel
 versions, so you can upgrade your distribution kernels.
 
-[!WARNING]
-Avoid Linux 6.16-rc7 kernel as it crashes frequently on the Odroid-M2.
+> [!WARNING]
+> Avoid Linux 6.16-rc7 kernel as it crashes frequently on the Odroid-M2.
 
 Write it to SD card (replace sdXX with device corresponding to the SD card):
 
