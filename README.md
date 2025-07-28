@@ -77,7 +77,7 @@ Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly 
 
 ## Further tuning
 
-There seems to be a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing, for example start sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file.
+There seems to be a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing, for example start Sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file.
 
 Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU scheduler tuning.
 
