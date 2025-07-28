@@ -1,0 +1,12 @@
+diff -ru a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi	2025-07-28 00:26:38.000000000 +0300
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi	2025-07-28 12:36:46.761649629 +0300
+@@ -2058,7 +2058,7 @@
+ 		reg = <0x0 0xfe378000 0x0 0x200>;
+ 		interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
+-		resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
++		resets = <&scmi_reset 48>;
+ 	};
+ 
+ 	i2s0_8ch: i2s@fe470000 {
