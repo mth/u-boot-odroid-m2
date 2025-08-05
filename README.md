@@ -50,7 +50,7 @@ This means that your serial adapter pins should be connected in the order *groun
 (which often is black, green, white). The serial adapter should be configured for 1500000
 baud rate, for example by using `screen /dev/ttyUSB0 1500000`.
 
-<img style="float: right" src="https://mth.github.io/images/odroid-m2-uart.png"/>
+<div style="float: right"><img src="https://mth.github.io/images/odroid-m2-uart.png"/></div>
 
 The UART uses 3.3V signalling, please don't attempt connecting anything like RS232 port directly
 (those are specified for +/-12V signals, and would likely fry at least the SOCs UART).
