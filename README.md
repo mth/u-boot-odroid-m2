@@ -45,6 +45,9 @@ with second one starting at 8MiB offset.
 
 ## Connecting UART
 
+<div style="float: right">
+![UART](./.github/odroid-m2-uart.png)
+</div>
 The UART pins counted from the nearest board corner are *ground, TX, RX* and *+3.3V*.
 This means that your serial adapter pins should be connected in the order *ground, RX* and *TX*
 (which often is black, green, white). The serial adapter should be configured for 1500000
