@@ -79,10 +79,17 @@ Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly 
 
 ## Further tuning
 
-There seems to be a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing, for example start Sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file.
+There seems to be a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing (avoiding the hickups), for example start Sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file.
 
 Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU scheduler tuning.
 
 This script is inspired by Thomas Kaiser [comments about Radxa Rock 5B with BSP kernel](https://github.com/ThomasKaiser/Knowledge/blob/master/articles/Quick_Preview_of_ROCK_5B.md).
 
 If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3config.cfg` (replacing previous `cl_renderer` value) for better ioquake3 performance. It is mostly fast and flawlessly playable, although with rare hiccups.
+
+I'm using following additional kernel parameters in the Debians `/etc/default/grub` file:
+
+* `coherent_pool=2M` to allocate 2MB contiguous memory for DMA (should avoid some UAS problems)
+* `video=1920x1080@60` sets the video mode for display connected to the HDMI
+* `drm.vblankoffdelay=50` seems to make `vblank wait timed out` warnings rarer
+* `console=ttyS2 console=tty0` enables both serial and framebuffer console, with framebuffer as primary for entering LUKS password at boot
