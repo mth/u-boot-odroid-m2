@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# This file as /etc/initramfs-tools/hooks/zz-no-ohci will remove OHCI drivers from initramfs.
+# Unlocking encrypted root filesystem (LUKS) with USB keyboard won't work if OHCI drivers get
+# loaded before EHCI USB drivers, removing OHCI drivers from initramfs fixes this.
+# The graphics, EHCI and USB HID drivers must be included in the initramfs.
+
+case $1 in
+prereqs) exit 0;;
+esac
+
+find "$DESTDIR/usr/lib/modules" -name 'ohci-*.ko.*' -exec rm -f '{}' +

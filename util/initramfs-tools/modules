@@ -1,0 +1,49 @@
+# List of modules that you want to include in your initramfs.
+# They will be loaded at boot time in the order below.
+#
+# Syntax:  module_name [args ...]
+#
+# You must run update-initramfs(8) to effect this change.
+#
+# Examples:
+#
+# raid1
+# sd_mod
+
+rockchipdrm
+dw_hdmi_qp
+dw_mipi_dsi
+dw_hdmi
+drm_gpuvm
+analogix_dp
+drm_exec
+panthor
+drm_display_helper
+gpu_sched
+drm_client_lib
+drm_shmem_helper
+drm_dma_helper
+drm_kms_helper
+drm
+cec
+display_connector
+ehci_hcd
+usbcore
+# xhci_hcd
+usb_common
+pwm_fan
+rockchip_thermal
+phy_rockchip_inno_usb2
+pwm_rockchip
+phy_rockchip_samsung_hdptx
+phy_rockchip_naneng_combphy
+fixed
+gpio_rockchip
+typec
+hid_generic
+usbhid
+hid
+# xhci_plat_hcd
+fusb302
+phy_rockchip_usbdp
+typec
