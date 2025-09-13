@@ -73,7 +73,7 @@ Currently you need UART console to use Linux distributions installers.
 
 ## Browsers
 
-Chromium based browsers run smoothly with good performance, but they contain some bug that causes frequent crashes when using Wayland directly. Possible workarounds are setting [Preferred Ozone platform](chrome://flags#ozone-platform-hint) to `X11` or enabling [Vulkan](chrome://flags#enable-vulkan) and [Default ANGLE Vulkan](chrome://flags#default-angle-vulkan) on the `chrome://flags` page.
+Chromium based browsers run smoothly with good performance, but they contain some bug that causes frequent crashes when using Wayland directly. Possible workarounds are setting <a href="chrome://flags#ozone-platform-hint">Preferred Ozone platform</a> to `X11` or enabling [Vulkan](chrome://flags#enable-vulkan) and [Default ANGLE Vulkan](chrome://flags#default-angle-vulkan) on the `chrome://flags` page.
 
 Enabling *Vulkan* gives a bit better performance (probably due not using Xwayland) and has been tested with Mesa [25.1](https://github.com/mth/u-boot-odroid-m2/issues/2) and 25.2. Using ungoogled-chromium flatpak with Mesa 25.2 on Debian Stable I enabled [Override software rendering list](chrome://flags#ignore-gpu-blocklist), [Vulkan](chrome://flags##enable-vulkan), [Default ANGLE Vulkan](chrome://flags##default-angle-vulkan), [Vulkan from ANGLE](chrome://flags##vulkan-from-angle), [Trees in viz](chrome://flags#trees-in-viz) and disabled [Wayland linux-drm-syncobj explicit sync](chrome://flags#wayland-linux-drm-syncobj) and [GPU rasterization](chrome://flags#enable-gpu-rasterization) (GPU rasterization with Vulkan seems to cause flickering on pages).
 
