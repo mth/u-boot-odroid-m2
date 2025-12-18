@@ -23,7 +23,7 @@ If you can't bother to build it and really trust me, you may instead use a pre-b
 
 1. Download your favorite UEFI Linux installer image for aarch64 and write it to USB stick.
 2. Connect M.2 NVME to the board (optional).
-3. Connect UART (serial) console to the boards UART.
+3. Connect UART (serial) console to the boards UART (this can be skipped for some newer distributions like <a href="https://cdimage.ubuntu.com/releases/25.10/release/ubuntu-25.10-desktop-arm64.iso">Ubuntu 25.10</a>, if you have display connected to HDMI).
 4. Insert both the SD card and USB stick into your Odroid-M2. Set the boot switch to SD card.
 5. Power on the board to boot the installer.
 6. Install your Linux distribution.
@@ -69,7 +69,8 @@ backports, when newer kernel versions have landed there).
 
 Usable GUI also needs userland to have 24.x or newer version of the Mesa libraries.
 
-Currently you need UART console to use Linux distributions installers.
+Currently many Linux distributions installers need UART console, however some newer ones are able to boot into working graphical GUI.
+NB! The display appears only after the Linux kernel has booted (GRUB has no output).
 
 ## Browsers
 
