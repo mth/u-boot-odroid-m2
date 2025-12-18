@@ -8,7 +8,7 @@ Build the image:
 
 	make
 
-This U-Boot build includes Odroid-M2 device tree from the Linux 6.16 kernel sources,
+This U-Boot build includes Odroid-M2 device tree from the Linux 6.18.1 kernel sources,
 that will be provided to the operating system booted with UEFI. The device tree is patched to
 enable both on-board and HDMI audio output. It likely also works with other Linux kernel
 versions, so you can upgrade your distribution kernels.
@@ -59,7 +59,7 @@ FT232R (FTDI), CH343, CH340 and some PL2303 variants (HX, GR, GE, GC, EA, TA).
 
 ## No HDMI output
 
-The U-Boot 25.07 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
+The U-Boot 25.10 does not support HDMI output on the RK3588. The GRUB booted on it with EFI also has no HDMI output, as is with Linux kernel versions prior to 6.13. The HDMI audio output needs 6.15 kernel.
 
 It is possible to have HDMI output on the installed Linux, provided that it uses at least 6.13 kernel compiled with `CONFIG_ROCKCHIP_DW_HDMI_QP` enabled and video mode (for example video=1920x1080@60) is given on kernel command line. You should use at least 6.15 kernel version, if you wish to use other video modes than 1920x1080.
 
@@ -82,7 +82,7 @@ Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly 
 
 ## Further tuning
 
-There seems to be a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing (avoiding the hickups), for example start Sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file.
+There seems to have been a bug that causes Linux kernel to log warnings `[CRTC:80:video_port0] vblank wait timed out` and if Wayland syncs with vblank, it hungs for a second or few. Workaround is to disable vblank syncing (avoiding the hickups), for example start Sway with environment variable `vblank_mode=0` set and add `output * allow_tearing yes` into `~/.config/sway/config` file. Haven't seen the errors with 6.18 kernel yet.
 
 Run the `util/cpu-affinity-m2.sh` script at startup for IRQ affinity and CPU scheduler tuning.
 
