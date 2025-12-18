@@ -28,6 +28,8 @@ drm
 cec
 display_connector
 ehci_hcd
+ehci_platform
+evdev
 usbcore
 # xhci_hcd
 usb_common
