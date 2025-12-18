@@ -93,6 +93,6 @@ If you like Quake III, put `seta cl_renderer "opengl1"` into `~/.q3a/baseq3/q3co
 I'm using following additional kernel parameters in the Debians `/etc/default/grub` file:
 
 * `coherent_pool=2M` to allocate 2MB contiguous memory for DMA (should avoid some UAS problems)
-* `video=1920x1080@60` sets the video mode for display connected to the HDMI
+* `video=1920x1080@60` sets the video mode for display connected to the HDMI (not necessary with 6.17 and later kernels, as Ubuntu 25.10 live image boots into GUI without it)
 * `drm.vblankoffdelay=50` seems to make `vblank wait timed out` warnings rarer
 * `console=ttyS2 console=tty0` enables both serial and framebuffer console, with framebuffer as primary for entering LUKS password at boot
