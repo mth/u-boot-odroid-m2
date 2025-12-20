@@ -3,7 +3,7 @@ LINUX=linux-6.18.1
 LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
 BUILD_DIR=$(shell pwd)/build-$(CONFIG)
-ENV=BL31=../rkbin/rk3588_bl31_v1.48.elf ROCKCHIP_TPL=../rkbin/rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.18.bin DTC=/usr/bin/dtc O=$(BUILD_DIR)
+ENV=BL31=../rkbin/rk3588_bl31_v1.51.elf ROCKCHIP_TPL=../rkbin/rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.19.bin DTC=/usr/bin/dtc O=$(BUILD_DIR)
 DEFCONFIG_FILE=$(UBOOT)/configs/$(CONFIG)_defconfig
 
 $(CONFIG)-uboot.img: build-$(CONFIG)/u-boot-rockchip.bin
