@@ -8,7 +8,7 @@ Build the image:
 
 	make
 
-This U-Boot build includes Odroid-M2 device tree from the Linux 6.18.1 kernel sources,
+This U-Boot build includes Odroid-M2 device tree from the Linux 7.0.5 kernel sources,
 that will be provided to the operating system booted with UEFI. The device tree is patched to
 enable both on-board and HDMI audio output. It likely also works with other Linux kernel
 versions, so you can upgrade your distribution kernels.
@@ -23,7 +23,7 @@ If you can't bother to build it and really trust me, you may instead use a pre-b
 
 1. Download your favorite UEFI Linux installer image for aarch64 and write it to USB stick.
 2. Connect M.2 NVME to the board (optional).
-3. Connect UART (serial) console to the boards UART (this can be skipped for some newer distributions like <a href="https://cdimage.ubuntu.com/releases/25.10/release/ubuntu-25.10-desktop-arm64.iso">Ubuntu 25.10</a>, if you have display connected to HDMI).
+3. Connect UART (serial) console to the boards UART (this can be skipped for some newer distributions like <a href="https://cdimage.ubuntu.com/releases/25.10/release/ubuntu-25.10-desktop-arm64.iso">Ubuntu 25.10</a> or newer, if you have display connected to HDMI).
 4. Insert both the SD card and USB stick into your Odroid-M2. Set the boot switch to SD card.
 5. Power on the board to boot the installer.
 6. Install your Linux distribution.

@@ -1,5 +1,5 @@
-UBOOT=v2025.10
-LINUX=linux-6.18.1
+UBOOT=v2026.04
+LINUX=linux-7.0.5
 LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
 BUILD_DIR=$(shell pwd)/build-$(CONFIG)
@@ -29,7 +29,7 @@ $(UBOOT).tar.gz:
 	wget https://github.com/u-boot/u-boot/archive/refs/tags/$@
 
 $(LINUX_TAR):
-	wget https://cdn.kernel.org/pub/linux/kernel/v6.x/$@
+	wget https://cdn.kernel.org/pub/linux/kernel/v7.x/$@
 	# wget https://git.kernel.org/torvalds/t/$@
 
 menuconfig:
