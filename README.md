@@ -78,7 +78,7 @@ Chromium based browsers run smoothly with good performance, but they contain som
 
 Enabling **Vulkan** has been tested with Mesa [25.1](https://github.com/mth/u-boot-odroid-m2/issues/2) and 25.2. Using ungoogled-chromium flatpak with Mesa 25.2 on Debian 13 I enabled **Override software rendering list** _#ignore-gpu-blocklist_, **Vulkan** _#enable-vulkan_, **Default ANGLE Vulkan** _#default-angle-vulkan_, **Vulkan from ANGLE** _#vulkan-from-angle_, **Trees in viz** _#trees-in-viz_ and disabled **Wayland linux-drm-syncobj explicit sync** _#wayland-linux-drm-syncobj_. Vulkan on Chromium has a bug causing flickering on web pages, this can be avoided by disabling **GPU rasterization** _#enable-gpu-rasterization_.
 
-Firefox has acceptable performance with the Linux 6.15 kernel and is annoyingly laggy on the 6.13.
+Firefox seems to be about as fast as on the comparable x86 with 7.x kernels. It had acceptable performance with the Linux 6.15 kernel and was annoyingly laggy on the 6.13.
 
 ## Further tuning
 
