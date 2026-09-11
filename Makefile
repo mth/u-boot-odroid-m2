@@ -1,5 +1,5 @@
-UBOOT=v2026.04
-LINUX=linux-7.0.5
+UBOOT=v2026.07
+LINUX=linux-7.2.5
 LINUX_TAR=$(LINUX).tar.xz
 CONFIG=odroid-m2-rk3588s
 BUILD_DIR=$(shell pwd)/build-$(CONFIG)
